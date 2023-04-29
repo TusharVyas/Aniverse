@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Aniverse/static/css/main.2ee0e9bb.css",
+    "main.js": "/Aniverse/static/js/main.3651a335.js",
+    "index.html": "/Aniverse/index.html",
+    "main.2ee0e9bb.css.map": "/Aniverse/static/css/main.2ee0e9bb.css.map",
+    "main.3651a335.js.map": "/Aniverse/static/js/main.3651a335.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2ee0e9bb.css",
+    "static/js/main.3651a335.js"
+  ]
+}
