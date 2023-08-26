@@ -17,16 +17,22 @@ const Login = () => {
     const [loading,setLoading]=useState(false);
 
     const login=async()=>{
-        
         setLoading(true);
         try{
             const quer=query(usersRef,where('mobile','==',form.mobile));
             const querySnapShot=await getDocs(quer);
+            if(!querySnapShot.size) swal({
+                        title: "No users found.Please signup",
+                        icon : "error",
+                        buttons : false,
+                        timer : 3000
+            })
             querySnapShot.forEach((doc)=>{
                 const _data=doc.data();
                 const isUser=bcrypt.compareSync(form.password,_data.password);
                 if(isUser)
                 {
+                    console.log("user in");
                     useAppState.setLogin(true);
                     useAppState.setUserName(_data.name);
                     swal({
@@ -38,6 +44,7 @@ const Login = () => {
                     nav('/');
                 }
                 else{
+                    console.log("invlaid user");
                     swal({
                         title: "Invalid credentials",
                         icon : "error",
@@ -48,6 +55,7 @@ const Login = () => {
             })
         }
         catch(err){
+          console.log("error")
             swal({
                 title: err.message,
                 icon : "error",
